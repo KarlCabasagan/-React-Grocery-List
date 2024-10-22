@@ -11,14 +11,6 @@ function Header() {
                 </h1>
                 <CartButton />
             </div>
-            {/* <div className="w-full h-1/2 flex items-center overflow-x-scroll">
-                <h3 className="text-xl text-zinc-200 ml-10 whitespace-nowrap">My List</h3>
-                <h3 className="text-xl text-zinc-200 ml-10 whitespace-nowrap">My List</h3>
-                <h3 className="text-xl text-zinc-200 ml-10 whitespace-nowrap">My List</h3>
-                <h3 className="text-xl text-zinc-200 ml-10 whitespace-nowrap">My List</h3>
-                <h3 className="text-xl text-zinc-200 ml-10 whitespace-nowrap">My List</h3>
-                <h3 className="text-xl text-zinc-200 ml-10 mr-10 whitespace-nowrap">+ New List</h3>
-            </div> */}
         </div>
   )
 }
