@@ -3,7 +3,8 @@ function CartTotal() {
     return(
         <div className="w-full h-24 bg-zinc-50 border-t-2 border-zinc-300 flex gap-0 justify-between items-center sticky shadow-md">
             <div className="w-[75%] ml-4">
-                <h1 className="text-xl">Total: <h1 className="text-2xl text-red-600 font-semibold ml-2">₱100.00</h1></h1>
+                <h1 className="text-xl">Total:</h1>
+                <h1 className="text-2xl text-red-600 font-semibold ml-2">₱100.00</h1>
             </div>
             <div className="w-[25%] h-full bg-zinc-900 flex justify-center items-center">
                 <button className="w-full h-full flex justify-center items-center">
