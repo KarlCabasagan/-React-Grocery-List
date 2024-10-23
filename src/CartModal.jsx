@@ -8,7 +8,11 @@ function CartModal({cartItems}) {
 
     const [cartModal, setCartModal] = useContext(CartContext)
 
-    const total = cartItems.reduce((acc, item) => acc + item.subtotal, 0)
+    const [total, setTotal] = useState(cartItems.reduce((acc, item) => acc + item.subtotal, 0))
+
+    useEffect(() => {
+        setTotal(cartItems.reduce((acc, item) => acc + item.subtotal, 0))
+    }, [cartItems])
 
     return(
         <div className={(cartModal ? "z-40 opacity-100" : "opacity-0 z-[-1]") + " w-screen h-screen max-h-screen flex flex-col items-center bg-zinc-100 fixed transition ease-in-out duration-200"}>

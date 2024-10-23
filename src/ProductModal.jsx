@@ -1,9 +1,11 @@
 import { useContext } from "react"
-import { ProductContext, ProductDataContext } from "./App"
+import { CartProductDataContext, ProductContext, ProductDataContext } from "./App"
 
 function ProductModal(props) {
 
     const [products, setProducts] = useContext(ProductDataContext)
+    const [cartItems, setCartItems] = useContext(CartProductDataContext)
+
     const [productModal, setProductModal] = useContext(ProductContext)
 
     const handleNameOnChange = (event) => {
@@ -28,6 +30,21 @@ function ProductModal(props) {
         setProducts(updateProduct)
     }
 
+    const handleAddCart = (event) => {
+        const existingItem = cartItems.findIndex(item => item.id === props.id)
+
+        if (existingItem !== -1) {
+            const updatedCartItems = [...cartItems]
+            updatedCartItems[existingItem].quantity++
+            updatedCartItems[existingItem].subtotal = updatedCartItems[existingItem].quantity * updatedCartItems[existingItem].price
+            setCartItems(updatedCartItems)
+        } else {
+            setCartItems(c => [...c, {id: props.id, name: props.name, price: Number(props.price), quantity: 1, subtotal: Number(props.price), image: props.image }])
+        }
+
+        setProductModal(false)
+    }
+
     return(
         <div className={(productModal ? "h-full" : "h-[0px]") + " z-[51] w-screen max-h-[50%] flex justify-center items-center bg-zinc-100 fixed bottom-0 rounded-t-3xl transition-all ease-in duration-[200ms]"}>
             <div className="w-[90%] h-[90%] flex flex-col">
@@ -46,7 +63,7 @@ function ProductModal(props) {
                     </div>
                 </div>
                 <div className="w-full flex justify-end">
-                    <button className="bg-red-700 p-3 font-semibold text-zinc-100 rounded-lg">
+                    <button onClick={handleAddCart} className="bg-red-700 p-3 font-semibold text-zinc-100 rounded-lg">
                         Add to Cart
                     </button>
                 </div>

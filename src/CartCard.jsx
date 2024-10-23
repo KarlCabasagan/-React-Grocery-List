@@ -56,7 +56,7 @@ function CartCard(props) {
             <div className="w-[98%] mt-1 ml-2 flex items-center justify-between">
                 <div className="w-[65%]">
                     <h4 className="w-[90%] text-zinc-900 text-lg truncate">{props.name}</h4>
-                    <h4 className="text-red-600 text-lg font-semibold truncate ml-1 mt-[-6px]">₱{props.subtotal}</h4>
+                    <h4 className="text-red-600 text-lg font-semibold truncate ml-1 mt-[-6px]">₱{props.subtotal.toFixed(2)}</h4>
                 </div>
                 <div className="w-auto flex items-center justify-center mr-4 gap-0.5 border-2 border-zinc-300 rounded">
                     <button onClick={decrementQuantity} className="w-8 h-8 rounded border-r-2 flex items-center justify-center">
