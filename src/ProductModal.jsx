@@ -15,11 +15,11 @@ function ProductModal() {
                     <img src="images/test.jpg" alt="Toblerone.jpg" className="max-h-[100%] min-h-[100%] w-full object-cover rounded-lg shadow-lg" />
                 </div>
                 <div className="w-full h-auto mt-3">
-                    <input className="bg-inherit w-full text-2xl focus:outline-none truncate" type="text" value={"Toblerone Original"}/>
+                    <input className="bg-inherit w-full text-2xl focus:outline-none truncate" type="text" value={"Toblerone Original"} readOnly/>
                     <hr className="mt-1 mb-1 border-zinc-300"/>
                     <div className="w-full flex items-center">
                         <h4 className="text-2xl pr-1 font-semibold text-red-600">₱</h4>
-                        <input className="bg-inherit w-full text-2xl focus:outline-none font-semibold text-red-600" type="number" value="109.00"/>
+                        <input className="bg-inherit w-full text-2xl focus:outline-none font-semibold text-red-600" type="number" value="109.00" readOnly/>
                     </div>
                 </div>
                 <div className="w-full flex justify-end">
