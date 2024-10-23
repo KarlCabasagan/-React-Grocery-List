@@ -13,6 +13,8 @@ export const ProductContext = createContext(false)
 export const ProductDataContext = createContext(null)
 export const UniqueIdContext = createContext(null)
 
+export const CartProductDataContext = createContext(null)
+
 export const ProductIdContext = createContext(null)
 
 function App() {
@@ -24,14 +26,18 @@ function App() {
   const [uniqueId, setUniqueId] = useState(0)
   const [products, setProducts] = useState([])
 
+  const [cartItems, setCartItems] = useState([{id: 1, name: "Jollibee", price: 100.00, quantity: 1, subtotal: 100.00, image: "images/test.jpg"}, {id: 2, name: "Mc Donalds", price: 200.00, quantity: 1, subtotal: 200.00, image: "images/Toblerone.jpg"}])
+
   const [productId, setProductId] = useState(null)
 
   return (
     <div className='w-screen max-h-screen h-screen bg-zinc-100 flex items-center flex-col overflow-y-hidden'>
       <ProductDataContext.Provider value={[products, setProducts]}>
         <CartContext.Provider value={[cartModal, setCartModal]}>
-          <CartModal showModal={cartModal}/>
-          <Header />
+          <CartProductDataContext.Provider value={[cartItems, setCartItems]} >
+            <CartModal cartItems={cartItems} />
+            <Header />
+          </CartProductDataContext.Provider>
         </CartContext.Provider>
 
         <ProductContext.Provider value={[productModal, setProductModal]}>
