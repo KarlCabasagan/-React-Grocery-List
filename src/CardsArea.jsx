@@ -8,9 +8,9 @@ function CardsArea({productsData}) {
             {productsData.map(product => (
                 <Card key={product.id} id={product.id} name={product.name} price={product.price} image={product.image}/>
             ))}
-            <div className="w-full flex justify-center mt-14">
+            {/* <div className="w-full flex justify-center mt-14">
                 <h1 className="text-zinc-600">This is as far as it goes..</h1>
-            </div>
+            </div> */}
         </div>
         
     )
