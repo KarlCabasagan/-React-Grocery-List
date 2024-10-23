@@ -1,22 +1,12 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { ProductContext } from "./App"
 
 function Card() {
 
-    const [modalShow, setModalShow] = useState(false)
-
-    function clicked() {
-        setModalShow(m => !m)
-        
-        if(modalShow === true) {
-            console.log("True")
-        }
-        else {
-            console.log("False")
-        }
-    }
+    const [productModal, setProductModal] = useContext(ProductContext)
 
     return(
-        <div onClick={() => clicked(modalShow)} className="w-[49%] h-60 bg-zinc-50 mt-3 rounded-lg flex flex-col items-center shadow">
+        <div onClick={() => setProductModal(!productModal)} className="w-[49%] h-60 bg-zinc-50 mt-3 rounded-lg flex flex-col items-center shadow">
             <img src="images/test.jpg" alt="Toblerone.jpg" className="max-h-[75%] min-h-[75%] w-full object-cover rounded-t-lg" />
             <div className="w-[98%] mt-1 ml-2">
                 <h4 className="w-[95%] text-zinc-900 text-lg truncate">Toblerone Original</h4>
