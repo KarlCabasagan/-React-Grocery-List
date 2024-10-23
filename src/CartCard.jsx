@@ -39,13 +39,17 @@ function CartCard(props) {
         }
     }
 
+    const removeItem = (event) => {
+        setCartItems(c => c.filter(item => item.id !== props.id))
+    }
+
     useEffect(() => {
         console.log(cartItems)
     }, [cartItems])
 
     return(
         <div className="w-full h-60 bg-zinc-50 mt-3 rounded-lg relative flex flex-col items-center shadow">
-            <div className="absolute bg-white rounded-full p-1.5 top-2 right-2 flex items-center justify-center">
+            <div onClick={removeItem} className="absolute bg-white rounded-full p-1.5 top-2 right-2 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#dc2626"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
             </div>
             <img src={props.image} alt="Toblerone.jpg" className="max-h-[75%] min-h-[75%] w-full object-cover rounded-t-lg" />
